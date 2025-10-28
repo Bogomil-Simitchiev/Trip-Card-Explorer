@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import data from "../data/data.json";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import TripCardList from "./components/TripCardsList/TripCardsList";
 import "./App.css";
 import LoadingContext from "./contexts/LoadingContext";
@@ -34,7 +36,8 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Trip Explorer</h1>
+      
+      <h1>Trip Explorer <FontAwesomeIcon icon={faPlane} /></h1>
 
       <SearchBar
         searchQuery={searchQuery}

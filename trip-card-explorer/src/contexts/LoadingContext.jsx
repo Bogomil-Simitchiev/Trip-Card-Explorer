@@ -4,7 +4,6 @@ const LoadingContext = createContext();
 
 export default LoadingContext;
 
-
 export const LoadingProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
 
