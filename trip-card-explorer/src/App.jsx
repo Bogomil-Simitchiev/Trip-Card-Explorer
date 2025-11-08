@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import data from "../data/data.json";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlane } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlane } from "@fortawesome/free-solid-svg-icons";
 import TripCardList from "./components/TripCardsList/TripCardsList";
 import "./App.css";
 import LoadingContext from "./contexts/LoadingContext";
@@ -17,11 +16,13 @@ function App() {
 
   useEffect(() => {
     startLoading();
-    // here I simulate a fetch with a timeout to show the loading state
-    setTimeout(() => {
-      setTrips(data.trips);
-      stopLoading();
-    }, 1000);
+    fetch("../data/data.json")
+      .then((response) => response.json())
+
+      .then((data) => {
+        setTrips(data.trips);
+        stopLoading();
+      });
   }, []);
 
   const filteredTrips = trips
